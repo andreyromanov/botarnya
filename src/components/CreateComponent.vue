@@ -7,7 +7,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <label>Post Title:</label>
-            <input type="text" class="form-control" v-model="post.title">
+            <input type="text" class="form-control" v-model="post.req">
           </div>
         </div>
         </div>
@@ -15,7 +15,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label>Post Body:</label>
-              <textarea class="form-control" v-model="post.body" rows="5"></textarea>
+              <textarea class="form-control" v-model="post.res" rows="5"></textarea>
             </div>
           </div>
         </div><br />
@@ -36,7 +36,10 @@
     },
     methods: {
       addPost(){
-        console.log(this.post);
+        let uri = 'http://localhost:4000/add';
+        this.axios.post(uri, this.post).then(() => {
+        this.$router.push({name: 'posts'});
+        });
       }
     }
   }

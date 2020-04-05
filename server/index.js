@@ -78,7 +78,7 @@ app.get('/', (req,res) => {
 });
 
 app.get('/dialogs', (req,res) => {
-            const connection = mysql.createConnection({
+        const connection = mysql.createConnection({
             host: process.env.HOST,
             user: process.env.LOGIN,
             database: process.env.DB,
@@ -91,6 +91,20 @@ app.get('/dialogs', (req,res) => {
             if (err) throw err;
             res.send(result)        
         });
+    });
+});
+
+app.post('/add', async (req,res) => {
+            const connection = mysql.createConnection({
+            host: process.env.HOST,
+            user: process.env.LOGIN,
+            database: process.env.DB,
+            password: process.env.PASSWORD
+        });
+
+    connection.connect(function(err) {
+        if (err) throw err;
+        res.send(req.body) 
     });
 });
 
