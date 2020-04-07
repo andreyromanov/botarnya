@@ -36,7 +36,7 @@
     },
     methods: {
       addPost(){
-        let uri = 'http://localhost:4000/add';
+        let uri = 'http://localhost:4000/dialogs/add';
         this.axios.post(uri, this.post).then(() => {
         this.$router.push({name: 'posts'});
         });
