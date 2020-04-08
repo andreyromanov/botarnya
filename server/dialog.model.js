@@ -1,9 +1,7 @@
-// post.model.js
-
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// Define collection and schema for Post
+// Define collection and schema for Dialog
 let Dialog = new Schema({
   req: {
     type: String

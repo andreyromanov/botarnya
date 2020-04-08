@@ -1,9 +1,7 @@
-// post.model.js
-
 const express = require('express');
 const postRoutes = express.Router();
 
-// Require Post model in our routes module
+// Require Dialog model in our routes module
 let Dialog = require('./dialog.model');
 
 // Defined store route
