@@ -19,7 +19,7 @@
                             <td>{{ dialog.req }}</td>
                             <td>{{ dialog.res }}</td>
                             <td class="text-right"><router-link :to="{name: 'edit', params: { id: dialog.id }}" class="btn btn-primary">Edit</router-link></td>
-                            <td><button class="btn btn-danger">Delete</button></td>
+                            <td><button @click.prevent="deletePost(dialog._id)" class="btn btn-danger">Delete</button></td>
                           </tr>
                       </tbody>
                   </table>
@@ -42,6 +42,16 @@
       this.axios.get(uri).then(response => {
         this.dialogs = response.data;
       });
+    },
+    methods: {
+      deletePost(id)
+      {
+        let uri = `http://localhost:4000/dialogs/delete/${id}`;
+        this.axios.delete(uri).then(response => {
+          this.dialogs.splice(this.dialogs.indexOf(id), 1);
+          console.log(response)
+        });
+      }
     }
   }
 </script>

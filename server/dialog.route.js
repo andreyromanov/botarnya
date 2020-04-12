@@ -59,11 +59,11 @@ postRoutes.route('/update/:id').post(function (req, res) {
 });
 
 // Defined delete | remove | destroy route
-/*postRoutes.route('/delete/:id').delete(function (req, res) {
-    Post.findByIdAndRemove({_id: req.params.id}, function(err){
+postRoutes.route('/delete/:id').delete(function (req, res) {
+    Dialog.findByIdAndRemove({_id: req.params.id}, function(err){
         if(err) res.json(err);
         else res.json('Successfully removed');
     });
-});*/
+});
 
 module.exports = postRoutes;
